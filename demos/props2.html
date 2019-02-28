@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component-demo v-for="post in posts" :key="post.id" :post="post"></component-demo>
+    </div>
+</body>
+
+<script>
+    Vue.component('component-demo',{
+        props:['post'],
+        template: 
+        `<div class="component-demo">
+        <h2>{{ post.title }}</h2>
+        <div v-html="post.content"></div>
+        </div>`
+    })
+
+    new Vue({
+        el: "#app",
+        data:{
+           posts: [
+                {id:1,title:'My journey with Vue',content:'asdasdasd'},
+                {id:2,title:'Blogging with Vue',content:'asdasdasd'},
+                {id:3,title:'Why Vue is so fun',content:'asdasdasd'}
+            ]
+        }
+    })
+</script>
+</html>

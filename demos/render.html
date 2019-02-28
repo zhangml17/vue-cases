@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <!-- 条件渲染之 v-if -->
+    <div id="app">
+        <template v-if="loginType==='username'">
+            <label>Username:</label>
+            <input placeholder="Enter your  name " key="username-input">
+        </template>
+        <template v-else>
+            <label>Email:</label>
+            <input placeholder="Enter your  email " key='email-input'>
+        </template>
+
+        <button @click="toggle">Toggle login Type</button>
+    </div>
+</body>
+<script>
+    var watchExampleVM  = new Vue({
+        el:'#app',
+        data:{
+           loginType: 'username'
+        },
+        methods:{
+            toggle:function(){
+                if(this.loginType === 'username'){
+                this.loginType = "email"
+                }else{
+                this.loginType = 'username'
+                }
+            }
+        }
+    })
+</script>
+</html>
